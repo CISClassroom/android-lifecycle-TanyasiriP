@@ -39,13 +39,15 @@ Warning log
 คำสั่งแสดง Snackbar
 
 ```kotlin
-//Add your code here
+Snackbar.make(view, "Nice to meet ya, boi!!", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
 ```
 
-คำสั่งแสดง Tost
+คำสั่งแสดง Toast
 
 ```kotlin
-//Add your code here
+Toast.makeText(this,"Menu Click",Toast.LENGTH_SHORT)
+                return true
 ```
 
 ## Android LiveCycle Activity
@@ -54,20 +56,31 @@ Warning log
 
 1. onCreate() ->
 
+ตั้งค่าเริ่มต้นเพื่อใช้งาน Main Activity
 ```kotlin
-//Add your code here
+override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+        Log.i("onClick","Activity created")
+    }
 ```
 
 2. onStart() ->
 
+เรียกใช้งาน
 ```kotlin
 //Add your code here
 ```
 
 3. onResume() ->
 
+แสดง Preview ของหน้า Main Activity ที่เตรียมจะแสดงบนจอโทรศัพท์
 ```kotlin
-//Add your code here
+override fun onResume() {
+        super.onResume()
+        Log.i("onResume","Activity resume")
+    }
 ```
 
 4. onPause() ->
@@ -99,7 +112,8 @@ Warning log
 คำสั่งสำหรับเปิด activity ใหม่
 
 ```kotlin
-//Add your code here
+var i = Intent(this,Page2::class.java)
+            startActivity(i)
 ```
 
 คำสั่งสำหรับเปิด activity ใหม่ ผ่านเมนู setting
