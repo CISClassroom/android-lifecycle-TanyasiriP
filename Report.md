@@ -7,31 +7,31 @@
 Debug log
 
 ```kotlin
-//Add your code here
+Log.debug("This is a debug message")
 ```
 
 Error log
 
 ```kotlin
-//Add your code here
+Log.error("This is an error message with an additional Exception for output", "AndACustomTag", exception )
 ```
 
 Info log
 
 ```kotlin
-//Add your code here
+Log.info("This is an info message")
 ```
 
 Verbose log
 
 ```kotlin
-//Add your code here
+Log.v("tag", "This is an info message") 
 ```
 
 Warning log
 
 ```kotlin
-//Add your code here
+Log.warn("This is a warning message","WithACustomTag")
 ```
 
 ## SNACKBAR และ TOST
@@ -68,9 +68,9 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 2. onStart() ->
 
-เรียกใช้งาน
+onStart() ก็จะถูกเรียกหลังจาก onCreateทำงาน และจะทำงานอีกครั้งเมื่อ Activity ทำงานอีกครั้ง
 ```kotlin
-//Add your code here
+----
 ```
 
 3. onResume() ->
@@ -85,26 +85,42 @@ override fun onResume() {
 
 4. onPause() ->
 
+หยุดการทำงานของ Activity ชั่วคราว
 ```kotlin
-//Add your code here
+override fun onPause() {
+        super.onPause()
+		Log.i("onPause","Activity Pause")
+    }
 ```
 
 5. onStop() ->
 
+จะถูกเรียกเมื่อ Activity หนึ่งถูกปิดและไปใช้งานอีก Activity หนึ่งแทน
 ```kotlin
-//Add your code here
+override fun onStop() {
+        super.onStop()
+		Log.i("onStop","Activity Stop")
+    }
 ```
 
 6. onDestroy() ->
 
+จะถูกเรียกก่อนที่จะปิด Activity หนึ่งๆ
 ```kotlin
-//Add your code here
+override fun onDestroy() {
+        super.onDestroy()
+		Log.i("onDestroy","Activity Destroy")
+    }
 ```
 
 7. onRestart() ->
 
+จะถูกเรียกเมื่อ Activity หนึ่งถูกพับไว้แล้วมีการเรียกกลับมาแสดงอีกครั้ง
 ```kotlin
-//Add your code here
+override fun onRestart() {
+        super.onRestart()
+		Log.i("onRestart","Activity Restart")
+    }
 ```
 
 ## Start new Activity
@@ -119,5 +135,10 @@ var i = Intent(this,Page2::class.java)
 คำสั่งสำหรับเปิด activity ใหม่ ผ่านเมนู setting
 
 ```kotlin
-//Add your code here
+override fun onOptionsItemSelected(item: MenuItem): Boolean {
+	return when (item.itemId) {
+            R.id.action_settings -> true
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 ```
