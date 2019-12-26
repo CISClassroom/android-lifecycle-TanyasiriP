@@ -70,7 +70,10 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 onStart() ก็จะถูกเรียกหลังจาก onCreateทำงาน และจะทำงานอีกครั้งเมื่อ Activity ทำงานอีกครั้ง
 ```kotlin
-----
+onStart() {
+        super.onStart();
+        Log.i("onResume","Activity resume")
+    }
 ```
 
 3. onResume() ->
